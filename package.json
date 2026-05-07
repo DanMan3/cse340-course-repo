@@ -1,0 +1,29 @@
+{
+  "name": "cse340-course-repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanMan3/cse340-course-repo.git"
+  },
+  "keywords": [],
+  "author": "Daniel Bennion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanMan3/cse340-course-repo/issues"
+  },
+  "homepage": "https://github.com/DanMan3/cse340-course-repo#readme",
+  "dependencies": {
+    "ejs": "^5.0.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
