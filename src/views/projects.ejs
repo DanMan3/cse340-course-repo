@@ -1,13 +1,17 @@
 <%- include('partials/header') %>
 
 <main>
-    <h1><%= title %></h1>
+    <div class="wrapper">
 
-    <h2>Welcome to the CSE 340 Service Network!</h2>
-    <p>Here are our projects.</p>
-
-    <img class="main-logo" src="images/cse340-service-network.png" alt="CSE 340 Service Network Logo">
-
+        <h1><%= title %></h1>
+        
+        <h2>Upcoming Service Projects</h2>
+        <ul id="projects-list">
+            <li>Park Cleanup - Join us to clean up local parks and make them beautiful!</li>
+            <li>Food Drive - Help collect and distribute food to those in need.</li>
+            <li>Community Tutoring - Volunteer to tutor students in various subjects.</li>
+        </ul>
+    </div>
 </main>
 
 <%- include('partials/footer') %>
