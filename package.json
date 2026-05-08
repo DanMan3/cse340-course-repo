@@ -21,7 +21,8 @@
   "homepage": "https://github.com/DanMan3/cse340-course-repo#readme",
   "dependencies": {
     "ejs": "^5.0.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
