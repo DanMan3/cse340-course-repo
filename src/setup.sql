@@ -52,3 +52,42 @@ SELECT p.*, o.name AS organization_name
 FROM project p
 JOIN organization o ON p.organization_id = o.organization_id
 ORDER BY p.date;
+
+
+-- create category table
+CREATE TABLE category (
+  category_id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL UNIQUE
+);
+
+-- join table for many-to-many relationship
+CREATE TABLE project_category (
+  project_id INTEGER NOT NULL REFERENCES project(project_id) ON DELETE CASCADE,
+  category_id INTEGER NOT NULL REFERENCES category(category_id) ON DELETE CASCADE,
+  PRIMARY KEY (project_id, category_id)
+);
+
+-- categories
+INSERT INTO category (name) VALUES
+  ('Environmental'),
+  ('Educational'),
+  ('Community Service'),
+  ('Health and Wellness');
+
+-- associate each existing project with at least one category
+INSERT INTO project_category (project_id, category_id) VALUES
+  (1, 3),
+  (2, 3),
+  (3, 1),
+  (4, 3),
+  (5, 2),
+  (6, 1),
+  (7, 3),
+  (8, 1),
+  (9, 2),
+  (10, 3),
+  (11, 1),
+  (12, 3),
+  (13, 2),
+  (14, 3),
+  (15, 3);

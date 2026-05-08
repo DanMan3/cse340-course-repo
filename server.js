@@ -4,6 +4,7 @@ import path from 'path';
 import {testConnection} from './src/models/db.js';
 import { getAllOrganizations } from './src/models/organizations.js';
 import { getAllProjects } from './src/models/projects.js';
+import { getAllCategories } from './src/models/categories.js';
 
 
 
@@ -62,8 +63,14 @@ app.get('/projects', async (req, res) => {
 
 
 app.get('/categories', async (req, res) => {
+  try {
+    const categories = await getAllCategories();
     const title = 'Categories';
-    res.render('categories', { title });
+    res.render('categories', { title, categories });
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    res.status(500).send('Server error');
+  }
 });
 
 

@@ -7,10 +7,13 @@
     
     <h2>Service Project Categories</h2>
     <ul id="service-project-categories">
-      <li>Environmental</li>
-      <li>Educational</li>
-      <li>Community Service</li>
-      <li>Health and Wellness</li>
+      <% if (categories && categories.length) { %>
+        <% categories.forEach(category => { %>
+          <li><%= category.name %></li>
+        <% }) %>
+      <% } else { %>
+        <li>No categories found.</li>
+      <% } %>
     </ul>
   </div>
 </main>
