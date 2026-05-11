@@ -1,25 +1,30 @@
 <%- include('partials/header') %>
-
 <main>
-    <div class="wrapper">
-        <h1><%= title %></h1>
+  <div class="wrapper">
+    <h1><%= title %></h1>
 
-        <h2>Upcoming Service Projects</h2>
-        <ul id="projects-list">
-            <% if (projects && projects.length) { %>
-                <% projects.forEach(project => { %>
-                    <li>
-                        <%= new Date(project.date).toLocaleDateString() %>: <strong><%= project.title %></strong>
-                        (<%= project.organization_name %>)<br>
-                        <small><%= project.location %></small><br>
-                        <p><%= project.description %></p>
-                    </li>
-                <% }) %>
-            <% } else { %>
-                <li>No upcoming projects found.</li>
-            <% } %>
-        </ul>
-    </div>
+    <ul id="projects-list">
+      <% if (projects && projects.length) { %>
+        <% projects.forEach(project => { %>
+         <li class="project-card">
+  <a href="/project/<%= project.project_id %>" class="project-title"><%= project.title %></a>
+
+  <div class="project-meta">
+    <a href="/organization/<%= project.organization_id %>" class="project-org"><%= project.organization_name %></a>
+    <% if (project.date) { %>
+      <time class="project-date" datetime="<%= new Date(project.date).toISOString() %>">
+        <%= new Date(project.date).toLocaleDateString() %>
+      </time>
+    <% } else { %>
+      <span class="project-date">TBA</span>
+    <% } %>
+  </div>
+</li>
+        <% }) %>
+      <% } else { %>
+        <li>No upcoming projects found.</li>
+      <% } %>
+    </ul>
+  </div>
 </main>
-
 <%- include('partials/footer') %>

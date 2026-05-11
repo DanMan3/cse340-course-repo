@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+<main>
+  <div class="wrapper">
+    <div class="project">
+    <h1><%= project.title %></h1>
+
+    <p><strong>Organization:</strong>
+      <a href="/organization/<%= project.organization_id %>"><%= project.organization_name %></a>
+    </p>
+
+    <p><strong>Date:</strong>
+      <% if (project.date) { %><%= new Date(project.date).toISOString().slice(0,10) %><% } else { %>TBA<% } %>
+    </p>
+
+    <p><strong>Location:</strong> <%= project.location %></p>
+
+    <section>
+      <h2>Description</h2>
+      <p><%= project.description %></p>
+    </section>
+    </div>
+  </div>
+</main>
+<%- include('partials/footer') %>
