@@ -6,15 +6,15 @@
     <h1><%= title %></h1>
     
     <h2>Service Project Categories</h2>
-    <ul id="service-project-categories">
-      <% if (categories && categories.length) { %>
-        <% categories.forEach(category => { %>
-          <li><%= category.name %></li>
-        <% }) %>
-      <% } else { %>
-        <li>No categories found.</li>
-      <% } %>
-    </ul>
+   <ul id="service-project-categories">
+  <% if (categories && categories.length) { %>
+    <% categories.forEach(category => { %>
+      <li><a href="/category/<%= category.category_id %>"><%= category.name %></a></li>
+    <% }) %>
+  <% } else { %>
+    <li>No categories found.</li>
+  <% } %>
+</ul>
   </div>
 </main>
 

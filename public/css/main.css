@@ -10,6 +10,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 html,
@@ -46,8 +48,12 @@ h6 {
     line-height: 1.2;
 }
 
+h1 {
+    margin-bottom: 1.5rem;
+}
+
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 p {
@@ -329,6 +335,33 @@ main ul li * {
     line-height: 1.45;
 }
 
+.project-tags {
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.project-tags .tag {
+    display: inline-block;
+    padding: 6px 10px;
+    background: rgba(0, 102, 204, 0.08);
+    color: var(--accent);
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border: 1px solid rgba(0, 102, 204, 0.12);
+}
+
+.project-tags .tag:hover,
+.project-tags .tag:focus {
+    background: rgba(0, 102, 204, 0.14);
+    text-decoration: none;
+}
+
+
 /* ===========================
    Categories page 
    =========================== */
@@ -471,6 +504,71 @@ main ul li * {
     transform: translateY(-3px);
     box-shadow: 0 8px 24px rgba(10, 20, 40, 0.06);
 }
+
+
+/* ============================
+   Category list page
+   ============================ */
+
+#category-projects-list {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+#category-projects-list li {
+    padding: 12px 14px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 6px 18px rgba(10, 20, 40, 0.03);
+    transition: transform .12s ease, box-shadow .12s ease;
+    min-width: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+#category-projects-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(10, 20, 40, 0.06);
+}
+
+/* Title (first link) */
+#category-projects-list li>a:first-of-type {
+    display: block;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+#category-projects-list li>a:first-of-type:hover,
+#category-projects-list li>a:first-of-type:focus {
+    text-decoration: underline;
+}
+
+/* Secondary link (organization) and date styling */
+#category-projects-list li>a:not(:first-of-type) {
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+#category-projects-list time,
+#category-projects-list .project-date {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+
+/* ===========================
+   Individual Project page
+   =========================== */
+
 
 
 /* Footer */

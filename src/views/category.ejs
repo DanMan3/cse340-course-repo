@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+<main>
+  <div class="wrapper">
+    <h1><%= category.name %></h1>
+
+    <h2>Projects in this Category</h2>
+    <ul id="category-projects-list">
+      <% if (projects && projects.length) { %>
+        <% projects.forEach(proj => { %>
+          <li>
+            <a href="/project/<%= proj.project_id %>"><%= proj.title %></a>
+             <a href="/organization/<%= proj.organization_id %>"><%= proj.organization_name %></a>
+            <% if (proj.date) { %> — <%= new Date(proj.date).toISOString().slice(0,10) %><% } %>
+          </li>
+        <% }) %>
+      <% } else { %>
+        <li>No projects found for this category.</li>
+      <% } %>
+    </ul>
+  </div>
+</main>
+<%- include('partials/footer') %>
