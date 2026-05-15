@@ -52,6 +52,37 @@ const getProjectsByCategoryId = async (categoryId) => {
   return result.rows;
 };
 
+const createCategory = async (name) => {
+  const query = `
+    INSERT INTO category (name)
+    VALUES ($1)
+    RETURNING category_id;
+  `;
+  const result = await db.query(query, [name]);
+
+  if (result.rows.length === 0) {
+    throw new Error('Failed to create category');
+  }
+
+  return result.rows[0].category_id;
+};
+
+const updateCategory = async (id, name) => {
+  const query = `
+    UPDATE category
+    SET name = $2
+    WHERE category_id = $1
+    RETURNING category_id;
+  `;
+  const result = await db.query(query, [id, name]);
+
+  if (result.rows.length === 0) {
+    throw new Error('Failed to update category');
+  }
+
+  return result.rows[0].category_id;
+};
+
 const assignCategoryToProject = async (projectId, categoryId) => {
   const query = `
     INSERT INTO project_category (project_id, category_id)
@@ -62,17 +93,14 @@ const assignCategoryToProject = async (projectId, categoryId) => {
 };
 
 const updateCategoryAssignments = async (projectId, categoryIds) => {
-  // remove existing assignments
   const deleteQuery = `
     DELETE FROM project_category
     WHERE project_id = $1;
   `;
   await db.query(deleteQuery, [projectId]);
 
-  // if no categories selected, we're done
   if (!Array.isArray(categoryIds) || categoryIds.length === 0) return;
 
-  // normalize & insert assignments
   const ids = categoryIds.map(id => parseInt(id, 10)).filter(id => !isNaN(id));
   const promises = ids.map(cid => assignCategoryToProject(projectId, cid));
   await Promise.all(promises);
@@ -83,6 +111,8 @@ export {
   getCategoryById,
   getCategoriesByProjectId,
   getProjectsByCategoryId,
+  createCategory,
+  updateCategory,
   assignCategoryToProject,
   updateCategoryAssignments
 };
