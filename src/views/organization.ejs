@@ -1,7 +1,9 @@
 <%- include('partials/header') %>
 <main>
     <div class="wrapper">
+      <div class="organization-page">
   <h1><%= organizationDetails.name %></h1>
+  <p class="edit-organization"><a href="/edit-organization/<%= organizationDetails.organization_id %>">Edit</a></p>
 
   <img src="/images/<%= organizationDetails.logo_filename %>" alt="<%= organizationDetails.name %> logo">
   <p><%= organizationDetails.description %></p>
@@ -19,6 +21,7 @@
   <% } else { %>
     <p>No projects found.</p>
   <% } %>
+  </div>
   </div>
 </main>
 <%- include('partials/footer') %>

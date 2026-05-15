@@ -125,6 +125,38 @@ nav a:focus {
     outline: none;
 }
 
+/* Flash message styles */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert.warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert.info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
 /* ===========================
    Main 
    =========================== */
@@ -190,6 +222,123 @@ main ul li * {
     transform: translateY(-3px);
     box-shadow: 0 8px 24px rgba(10, 20, 40, 0.06);
 }
+
+.new-organization-link {
+    background: #fff;
+    color: var(--text);
+    font-weight: 700;
+    padding: 0.55rem 0.9rem;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.12);
+    transition: transform .14s ease, box-shadow .14s ease, opacity .12s ease;
+    margin-top: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+
+.new-organization-link:hover,
+.new-organization-link:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(0, 102, 204, 0.16);
+    opacity: 0.98;
+}
+
+.new-organization-link:active {
+    transform: translateY(-1px);
+}
+
+.new-organization-link:focus-visible {
+    outline: 3px solid rgba(0, 102, 204, 0.14);
+    outline-offset: 4px;
+}
+
+/* ===========================
+   Add New Organization page
+   =========================== */
+
+#new-organization-form {
+    width: 100%;
+    max-width: 720px;
+    margin: 1.25rem auto;
+    padding: 22px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px rgba(10, 20, 40, 0.06);
+    color: var(--text);
+}
+
+#new-organization-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+}
+
+#new-organization-form label {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+#new-organization-form input[type="text"],
+#new-organization-form input[type="email"],
+#new-organization-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fff;
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: border-color .12s ease, box-shadow .12s ease;
+}
+
+#new-organization-form textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.45;
+}
+
+#new-organization-form input:focus,
+#new-organization-form textarea:focus {
+    outline: none;
+    border-color: rgba(0, 102, 204, 0.28);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.06);
+}
+
+/* center actions and keep the submit compact */
+#new-organization-form .form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+/* primary submit */
+#new-organization-form button[type="submit"] {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.6rem 0.9rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.12);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .1s ease;
+}
+
+#new-organization-form button[type="submit"]:hover,
+#new-organization-form button[type="submit"]:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0, 102, 204, 0.16);
+    opacity: 0.98;
+}
+
+
 
 /* ===========================
    Projects page 
@@ -386,6 +535,7 @@ main ul li * {
     display: flex;
     align-items: center;
     gap: 12px;
+    justify-content: center;
 }
 
 #service-project-categories li:hover {
@@ -455,56 +605,6 @@ main ul li * {
     text-decoration: underline;
 }
 
-/* Organization detail: projects list */
-#organization-projects-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-    max-width: 600px;
-}
-
-#organization-projects-list li {
-    padding: 10px;
-    background: #fff;
-    border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    min-width: 0;
-    text-align: center;
-}
-
-#organization-projects-list a {
-    color: var(--accent);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-#organization-projects-list a:hover,
-#organization-projects-list a:focus {
-    text-decoration: underline;
-}
-
-/* Organization detail logo (non-floating, contained) */
-.wrapper>img {
-    max-width: 240px;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 8px;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-/* Subtle hover lift */
-#organizations-list li:hover,
-#organization-projects-list li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(10, 20, 40, 0.06);
-}
-
 
 /* ============================
    Category list page
@@ -566,9 +666,370 @@ main ul li * {
 
 
 /* ===========================
-   Individual Project page
+   Individual Organization page
    =========================== */
 
+/* Organization detail: projects list */
+.organization-page {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 18px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 20px rgba(10, 20, 40, 0.04);
+    color: var(--text);
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+.organization-page img {
+    max-width: 200px;
+    justify-content: center;
+    align-self: center;
+}
+
+.organization-page p {
+    color: var(--muted);
+    line-height: 1.45;
+}
+
+.organization-page li {
+    list-style: none;
+}
+
+.edit-organization a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    background: var(--bg);
+    color: var(--text);
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.06);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+    line-height: 1;
+}
+
+
+/* ===========================
+   Edit Organization Form page
+   =========================== */
+
+#edit-organization-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 1.25rem auto;
+    padding: 22px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px rgba(10, 20, 40, 0.06);
+    color: var(--text);
+}
+
+#edit-organization-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+}
+
+#edit-organization-form label {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+#edit-organization-form input[type="text"],
+#edit-organization-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fff;
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: border-color .12s ease, box-shadow .12s ease;
+}
+
+#edit-organization-form textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.45;
+}
+
+#edit-organization-form input:focus,
+#edit-organization-form textarea:focus {
+    outline: none;
+    border-color: rgba(0, 102, 204, 0.28);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.06);
+}
+
+/* two-column mini-layout for wider screens (optional HTML wrapper .form-row) */
+#edit-organization-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+#edit-organization-form button {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.12);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+/* ===========================
+   Add new project Form page
+   =========================== */
+
+#new-project-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 1.25rem auto;
+    padding: 22px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px rgba(10, 20, 40, 0.06);
+    color: var(--text);
+}
+
+#new-project-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+}
+
+#new-project-form label {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+#new-project-form input,
+#new-project-form textarea,
+#new-project-form select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fff;
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: border-color .12s ease, box-shadow .12s ease;
+}
+
+#new-project-form textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.45;
+}
+
+#new-project-form input:focus,
+#new-project-form textarea:focus,
+#new-project-form select:focus {
+    outline: none;
+    border-color: rgba(0, 102, 204, 0.28);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.06);
+}
+
+/* center actions and keep the submit compact */
+#new-project-form .form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+/* primary submit */
+#new-project-form button {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.6rem 0.9rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.12);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .1s ease;
+}
+
+#new-project-form button:hover,
+#new-project-form button:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0, 102, 204, 0.16);
+    opacity: 0.98;
+}
+
+
+/* ===========================
+   Assign Categories to Project page
+   =========================== */
+
+#assign-categories-form {
+    width: 100%;
+    max-width: 720px;
+    margin: 1rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    align-content: center;
+}
+
+#assign-categories-form .form-group {
+    flex: 1 1 220px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(10, 20, 40, 0.03);
+    min-width: 0;
+}
+
+#assign-categories-form .form-group label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+#assign-categories-form input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+}
+
+#assign-categories-form button {
+    display: block;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.6rem 0.9rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.12);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .1s ease;
+    margin-top: 12px;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+#assign-categories-form button:hover,
+#assign-categories-form button:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0, 102, 204, 0.16);
+    opacity: 0.98;
+}
+
+
+/* ===========================
+   Edit project form page
+   =========================== */
+
+#edit-project-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 1.25rem auto;
+    padding: 22px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px rgba(10, 20, 40, 0.06);
+    color: var(--text);
+}
+
+#edit-project-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+}
+
+#edit-project-form label {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+#edit-project-form input,
+#edit-project-form textarea,
+#edit-project-form select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fff;
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: border-color .12s ease, box-shadow .12s ease;
+}
+
+#edit-project-form textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.45;
+}
+
+#edit-project-form input:focus,
+#edit-project-form textarea:focus,
+#edit-project-form select:focus {
+    outline: none;
+    border-color: rgba(0, 102, 204, 0.28);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.06);
+}
+
+#edit-project-form .form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+#edit-project-form button {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.6rem 0.9rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.12);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .1s ease;
+    width: 100%;
+}
+
+#edit-project-form button:hover,
+#edit-project-form button:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0, 102, 204, 0.16);
+    opacity: 0.98;
+}
 
 
 /* Footer */
@@ -583,6 +1044,8 @@ a:focus {
     outline: 3px solid rgba(0, 102, 204, 0.12);
     outline-offset: 3px;
 }
+
+
 
 @media (min-width:601px) {
 
@@ -656,4 +1119,55 @@ a:focus {
         margin-right: 1rem;
         max-width: 220px;
     }
+
+    /* Add new organization page on wide screens */
+
+    #new-organization-form {
+        margin: 1rem 12px;
+        padding: 16px;
+        max-width: 600px;
+    }
+
+    #new-organization-form button[type="submit"] {
+        width: 100%;
+    }
+
+    #new-organization-form .form-actions {
+        justify-content: stretch;
+    }
+
+
+    .organization-page {
+        max-width: 600px;
+    }
+
+
+    /* Edit organization page on wide screens */
+    #edit-organization-form button {
+        max-width: 200px;
+
+    }
+
+    /* Assign categories to project page */
+
+    .project {
+        max-width: 600px;
+    }
+
+    #assign-categories-form {
+        max-width: 600px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #assign-categories-form .form-group {
+
+        flex: none;
+    }
+
+    #assign-categories-form button {
+        max-width: 400px;
+    }
+
+
 }
