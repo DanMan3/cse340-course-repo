@@ -1218,6 +1218,112 @@ body:has(#edit-category-form) nav ul {
 }
 
 
+/* ===========================
+   Account forms: register / login / edit-profile
+   =========================== */
+#register-form,
+#login-form,
+#edit-profile-form {
+    width: 100%;
+    max-width: 720px;
+    margin: 1.25rem auto;
+    padding: 22px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px rgba(10, 20, 40, 0.06);
+    color: var(--text);
+}
+
+#register-form .form-group,
+#login-form .form-group,
+#edit-profile-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+}
+
+#register-form label,
+#login-form label,
+#edit-profile-form label {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+#register-form input[type="text"],
+#register-form input[type="email"],
+#register-form input[type="password"],
+#register-form textarea,
+#login-form input[type="email"],
+#login-form input[type="password"],
+#edit-profile-form input[type="text"],
+#edit-profile-form input[type="email"],
+#edit-profile-form input[type="password"],
+#edit-profile-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fff;
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: border-color .12s ease, box-shadow .12s ease;
+}
+
+#register-form textarea,
+#edit-profile-form textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.45;
+}
+
+#register-form input:focus,
+#register-form textarea:focus,
+#login-form input:focus,
+#edit-profile-form input:focus,
+#edit-profile-form textarea:focus {
+    outline: none;
+    border-color: rgba(0, 102, 204, 0.28);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.06);
+}
+
+#register-form .form-actions,
+#login-form .form-actions,
+#edit-profile-form .form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+#register-form button,
+#login-form button,
+#edit-profile-form button {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.6rem 0.9rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.12);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .1s ease;
+}
+
+#register-form button:hover,
+#login-form button:hover,
+#edit-profile-form button:hover,
+#register-form button:focus,
+#login-form button:focus,
+#edit-profile-form button:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0, 102, 204, 0.16);
+    opacity: 0.98;
+}
+
+
 /* Footer */
 footer {
     margin-top: 2rem;
@@ -1362,6 +1468,30 @@ a:focus {
     #edit-category-form button[type="submit"] {
         max-width: 260px;
         margin: 0.5rem auto 0;
+    }
+
+    /* Account form pages: register/login/edit-profile */
+    #register-form,
+    #edit-profile-form {
+        margin: 1rem 12px;
+        padding: 16px;
+        max-width: 600px;
+    }
+
+    #login-form {
+        margin: 1rem 12px;
+        padding: 12px;
+        max-width: 420px;
+    }
+
+    #register-form button,
+    #login-form button,
+    #edit-profile-form button {
+        width: 100%;
+    }
+
+    #register-form .form-actions {
+        justify-content: stretch;
     }
 
 }

@@ -15,7 +15,9 @@ const flashMiddleware = (req, res, next) => {
     // SET: (type, message)
     if (type && message) {
       if (!req.session.flash[type]) req.session.flash[type] = [];
-      req.session.flash[type].push(message);
+      if (!req.session.flash[type].includes(message)) {
+        req.session.flash[type].push(message);
+      }
       return;
     }
 

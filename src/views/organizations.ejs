@@ -18,7 +18,9 @@
       <li>No organizations found.</li>
     <% } %>
   </ul>
-  <p class="new-organization-link"><a href="/new-organization">Add a new organization</a></p>
+  <% if (user && user.role_name === 'admin') { %>
+    <p class="new-organization-link"><a href="/new-organization">Add a new organization</a></p>
+  <% } %>
 </div>
 </main>
 <%- include('partials/footer') %>

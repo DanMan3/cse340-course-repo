@@ -12,14 +12,18 @@
     <% categories.forEach(category => { %>
       <li>
         <a class="category-name" href="/category/<%= category.category_id %>"><%= category.name %></a>
-        <a class="edit-category-link edit-organization" href="/edit-category/<%= category.category_id %>">Edit</a>
+        <% if (user && user.role_name === 'admin') { %>
+          <a class="edit-category-link edit-organization" href="/edit-category/<%= category.category_id %>">Edit</a>
+        <% } %>
       </li>
     <% }) %>
   <% } else { %>
     <li>No categories found.</li>
   <% } %>
 </ul>
-  <p class="create-category new-organization-link"><a href="/new-category">Create Category</a></p>
+  <% if (user && user.role_name === 'admin') { %>
+    <p class="create-category new-organization-link"><a href="/new-category">Create Category</a></p>
+  <% } %>
   </div>
 </main>
 

@@ -26,7 +26,9 @@
       <% } %>
     </ul>
 
-    <p class="new-organization-link"><a href="/new-project">Add a new project</a></p>
+    <% if (user && user.role_name === 'admin') { %>
+      <p class="new-organization-link"><a href="/new-project">Add a new project</a></p>
+    <% } %>
   </div>
 </main>
 <%- include('partials/footer') %>
