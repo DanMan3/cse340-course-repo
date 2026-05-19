@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { createUser, authenticateUser } from '../models/users.js';
+import { createUser, authenticateUser, getAllUsers } from '../models/users.js';
 import { body, validationResult } from 'express-validator';
 
 const showUserRegistrationForm = (req, res) => {
@@ -75,8 +75,18 @@ const requireRole = (role) => {
       return next();
     }
     req.flash('error', 'You do not have permission to view that page');
-    return res.redirect('/');
+    return res.redirect('/dashboard');
   };
+};
+
+// Admin-only Users page controller
+const showUsersPage = async (req, res, next) => {
+  try {
+    const users = await getAllUsers();
+    res.render('user', { title: 'Users', users });
+  } catch (err) {
+    next(err);
+  }
 };
 
 // Dashboard controller
@@ -118,5 +128,6 @@ export {
   userLoginValidation,
   requireLogin,
   requireRole,
-  showDashboard
+  showDashboard,
+  showUsersPage
 };

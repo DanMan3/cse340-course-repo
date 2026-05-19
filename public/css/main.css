@@ -1323,6 +1323,125 @@ body:has(#edit-category-form) nav ul {
     opacity: 0.98;
 }
 
+/* ===========================
+   Dashboard page
+   =========================== */
+.dashboard-page .dashboard-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 1.25rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px rgba(10, 20, 40, 0.06);
+    text-align: center;
+    color: var(--text);
+}
+
+.dashboard-page h1 {
+    font-size: 2.25rem;
+    margin-bottom: 0.4rem;
+    color: var(--accent);
+}
+
+.dashboard-page .welcome {
+    color: var(--muted);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.dashboard-page .dashboard-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.dashboard-page .dashboard-actions a {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.6rem 0.9rem;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.12);
+}
+
+.dashboard-page .dashboard-actions a:hover,
+.dashboard-page .dashboard-actions a:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0, 102, 204, 0.16);
+    outline: none;
+}
+
+/* ===========================
+   Users page (View All Users)
+   =========================== */
+
+.users-page .users-table {
+    width: 100%;
+    max-width: 980px;
+    margin: 1rem auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(10, 20, 40, 0.06);
+}
+
+.users-page .users-table thead {
+    background: rgba(0, 102, 204, 0.06);
+    color: var(--text);
+    font-weight: 700;
+}
+
+.users-page .users-table th,
+.users-page .users-table td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    font-size: 0.95rem;
+}
+
+.users-page .users-table tbody tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.users-page .users-table td.role {
+    color: var(--muted);
+    text-transform: capitalize;
+    font-weight: 700;
+    width: 140px;
+}
+
+.users-page .users-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.users-page .users-empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 1rem;
+}
+
+/* Make table horizontally scrollable on small screens */
+.users-page .users-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.users-page .users-table thead,
+.users-page .users-table tbody,
+.users-page .users-table tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
 
 /* Footer */
 footer {

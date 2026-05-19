@@ -5,7 +5,7 @@ import { showOrganizationsPage, showOrganizationDetailsPage, showNewOrganization
 import { showProjectsPage, showProjectDetailsPage, showNewProjectForm, processNewProjectForm, showEditProjectForm, processEditProjectForm, projectValidation } from './controllers/projects.js';
 import { showCategoriesPage, showCategoryDetailsPage, showAssignCategoriesForm, processAssignCategoriesForm, showNewCategoryForm, processNewCategoryForm, showEditCategoryForm, processEditCategoryForm, categoryValidation } from './controllers/categories.js';
 import { testErrorPage } from './controllers/errors.js';
-import { showUserRegistrationForm, processUserRegistrationForm, userRegistrationValidation, showLoginForm, processLoginForm, processLogout, userLoginValidation, requireLogin, requireRole, showDashboard } from './controllers/users.js';
+import { showUserRegistrationForm, processUserRegistrationForm, userRegistrationValidation, showLoginForm, processLoginForm, processLogout, userLoginValidation, requireLogin, requireRole, showDashboard, showUsersPage } from './controllers/users.js';
 
 const router = express.Router();
 
@@ -52,5 +52,6 @@ router.get('/logout', processLogout);
 
 // Dashboard (requires login)
 router.get('/dashboard', requireLogin, showDashboard);
+router.get('/users', requireRole('admin'), showUsersPage);
 
 export default router;

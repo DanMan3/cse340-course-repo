@@ -1,9 +1,17 @@
 <%- include('partials/header') %>
 
 <main>
-  <div class="wrapper">
-    <h1>Dashboard</h1>
-    <p>Welcome, <%= name %> (<%= email %>)</p>
+  <div class="wrapper dashboard-page">
+    <div class="dashboard-card">
+      <h1>Dashboard</h1>
+      <p class="welcome">Welcome, <%= name %> (<%= email %>)</p>
+
+      <div class="dashboard-actions">
+        <% if (user && user.role_name === 'admin') { %>
+          <a href="/users">View All Users</a>
+        <% } %>
+      </div>
+    </div>
   </div>
 </main>
 
