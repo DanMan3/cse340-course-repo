@@ -2,7 +2,7 @@ import express from 'express';
 
 import { showHomePage } from './controllers/index.js';
 import { showOrganizationsPage, showOrganizationDetailsPage, showNewOrganizationForm, processNewOrganizationForm, showEditOrganizationForm, processEditOrganizationForm, organizationValidation } from './controllers/organizations.js';
-import { showProjectsPage, showProjectDetailsPage, showNewProjectForm, processNewProjectForm, showEditProjectForm, processEditProjectForm, projectValidation } from './controllers/projects.js';
+import { showProjectsPage, showProjectDetailsPage, showNewProjectForm, processNewProjectForm, showEditProjectForm, processEditProjectForm, projectValidation, processVolunteer, processUnvolunteer } from './controllers/projects.js';
 import { showCategoriesPage, showCategoryDetailsPage, showAssignCategoriesForm, processAssignCategoriesForm, showNewCategoryForm, processNewCategoryForm, showEditCategoryForm, processEditCategoryForm, categoryValidation } from './controllers/categories.js';
 import { testErrorPage } from './controllers/errors.js';
 import { showUserRegistrationForm, processUserRegistrationForm, userRegistrationValidation, showLoginForm, processLoginForm, processLogout, userLoginValidation, requireLogin, requireRole, showDashboard, showUsersPage } from './controllers/users.js';
@@ -21,6 +21,8 @@ router.post('/edit-organization/:id', requireRole('admin'), organizationValidati
 
 router.get('/projects', showProjectsPage);
 router.get('/project/:id', showProjectDetailsPage);
+router.post('/project/:id/volunteer', requireLogin, processVolunteer);
+router.post('/project/:id/unvolunteer', requireLogin, processUnvolunteer);
 
 // Projects (admin only where appropriate)
 router.get('/new-project', requireRole('admin'), showNewProjectForm);

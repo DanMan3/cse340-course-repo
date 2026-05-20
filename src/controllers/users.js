@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import { createUser, authenticateUser, getAllUsers } from '../models/users.js';
+import { getVolunteerProjectsByUserId } from '../models/projects.js';
 import { body, validationResult } from 'express-validator';
 
 const showUserRegistrationForm = (req, res) => {
@@ -90,9 +91,17 @@ const showUsersPage = async (req, res, next) => {
 };
 
 // Dashboard controller
-const showDashboard = (req, res) => {
-  const { name, email } = req.session.user || {};
-  res.render('dashboard', { title: 'Dashboard', name, email });
+const showDashboard = async (req, res, next) => {
+  try {
+    const { name, email, user_id } = req.session.user || {};
+    let volunteerProjects = [];
+    if (user_id) {
+      volunteerProjects = await getVolunteerProjectsByUserId(user_id);
+    }
+    res.render('dashboard', { title: 'Dashboard', name, email, volunteerProjects });
+  } catch (err) {
+    next(err);
+  }
 };
 
 const processLogout = (req, res, next) => {

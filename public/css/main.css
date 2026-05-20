@@ -1328,7 +1328,7 @@ body:has(#edit-category-form) nav ul {
    =========================== */
 .dashboard-page .dashboard-card {
     width: 100%;
-    max-width: 900px;
+    max-width: 600px;
     margin: 1.25rem auto;
     padding: 2rem;
     border-radius: 12px;
@@ -1357,6 +1357,7 @@ body:has(#edit-category-form) nav ul {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .dashboard-page .dashboard-actions a {
@@ -1376,6 +1377,116 @@ body:has(#edit-category-form) nav ul {
     box-shadow: 0 16px 40px rgba(0, 102, 204, 0.16);
     outline: none;
 }
+
+
+/* Dashboard: Volunteering list */
+.dashboard-page .volunteer-list {
+    margin: 1.5rem auto 0;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.dashboard-page .volunteer-list h2 {
+    margin-bottom: 0.75rem;
+    color: var(--accent);
+}
+
+.dashboard-page .volunteer-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard-page .volunteer-list li {
+    padding: 12px 14px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-shadow: 0 6px 18px rgba(10, 20, 40, 0.03);
+    transition: transform .12s ease, box-shadow .12s ease;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.dashboard-page .volunteer-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(10, 20, 40, 0.06);
+}
+
+.dashboard-page .volunteer-list a {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1 1 auto;
+    margin-right: 12px;
+}
+
+.dashboard-page .volunteer-list form {
+    margin: 0;
+}
+
+/* Unvolunteer (remove) button - outline style that flips on hover/focus */
+.dashboard-page .volunteer-list form[action*="/unvolunteer"] button,
+.project form[action*="/unvolunteer"] button {
+    background: #fff;
+    color: var(--accent);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    border: 1px solid rgba(0, 102, 204, 0.12);
+    cursor: pointer;
+    box-shadow: none;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+    line-height: 1;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* hover / active - filled */
+.dashboard-page .volunteer-list form[action*="/unvolunteer"] button:hover,
+.dashboard-page .volunteer-list form[action*="/unvolunteer"] button:focus,
+.project form[action*="/unvolunteer"] button:hover,
+.project form[action*="/unvolunteer"] button:focus {
+    transform: translateY(-2px);
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 14px 36px rgba(0, 102, 204, 0.12);
+    outline: none;
+}
+
+/* Volunteer primary action on project page */
+.project form[action*="/volunteer"] button {
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.12);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .1s ease;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.project form[action*="/volunteer"] button:hover,
+.project form[action*="/volunteer"] button:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0, 102, 204, 0.16);
+    opacity: 0.98;
+}
+
 
 /* ===========================
    Users page (View All Users)

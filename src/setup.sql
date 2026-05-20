@@ -121,3 +121,12 @@ CREATE TABLE users (
 UPDATE users
 SET role_id = (SELECT role_id FROM roles WHERE role_name = 'admin')
 WHERE email = 'admin@example.com';
+
+
+
+-- join table for volunteers (many-to-many between users and projects)
+CREATE TABLE project_volunteer (
+  project_id INTEGER NOT NULL REFERENCES project(project_id) ON DELETE CASCADE,
+  user_id INTEGER NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+  PRIMARY KEY (project_id, user_id)
+);
